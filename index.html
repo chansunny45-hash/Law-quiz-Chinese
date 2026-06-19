@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>法考判断题刷题</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="quiz-panel" aria-label="刷题区">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">True / False</p>
+            <h1>法考判断题刷题</h1>
+          </div>
+          <div class="mode-switch" aria-label="刷题模式">
+            <button type="button" data-mode="all">全部</button>
+            <button type="button" data-mode="wrong">错题</button>
+          </div>
+        </div>
+
+        <div class="filters">
+          <label>
+            阶段
+            <select data-phase-select></select>
+          </label>
+          <label>
+            分类
+            <select data-category-select></select>
+          </label>
+          <button type="button" class="ghost-button" data-clear>清空记录</button>
+        </div>
+
+        <article class="question-card">
+          <div class="question-meta">
+            <span data-phase></span>
+            <span data-category></span>
+            <span data-counter></span>
+          </div>
+
+          <div class="progress-track" aria-hidden="true">
+            <div data-progress></div>
+          </div>
+
+          <p class="question-text" data-question></p>
+
+          <div class="answer-row">
+            <button type="button" data-answer="true">
+              <span>True</span>
+              正确
+            </button>
+            <button type="button" data-answer="false">
+              <span>False</span>
+              错误
+            </button>
+          </div>
+
+          <div class="feedback" data-feedback hidden></div>
+
+          <div class="nav-row">
+            <button type="button" data-prev>上一题</button>
+            <button type="button" data-next>下一题</button>
+          </div>
+        </article>
+      </section>
+
+      <aside class="side-panel" aria-label="学习记录">
+        <section class="stats-grid">
+          <div>
+            <span data-completed>0/0</span>
+            已答
+          </div>
+          <div>
+            <span data-accuracy>0%</span>
+            正确率
+          </div>
+          <div>
+            <span data-wrong-count>0</span>
+            错题
+          </div>
+        </section>
+
+        <section class="wrong-book">
+          <div class="section-title">
+            <h2>错题本</h2>
+            <p>选错后自动记录，答对后移出。</p>
+          </div>
+          <p class="empty-state" data-empty-wrong>暂无错题。</p>
+          <ul data-wrong-list></ul>
+        </section>
+      </aside>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
